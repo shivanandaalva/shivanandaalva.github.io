@@ -1,188 +1,239 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivananda Alva</title>
+    <title>Shivananda Alva | Full Stack Developer</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description"
+        content="Portfolio of Shivananda Alva, a Full Stack Developer specializing in JavaScript, Node.js, and modern web technologies.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Devicon for Tech Stack -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  
+
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-     <nav>
-         <div class="logo">
-             <h3>Shivananda Alva</h3>
-         </div>
-         <ul class="nav-links" id="nav-links">
-             <li>
-                <a href="#about">About</a>
-             </li>
-             <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-         </ul>
-        
-        <div class="burger" onclick="openNav()">
-            <div></div>
-            <div></div>
-            <div></div>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">Shivananda.</a>
         </div>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <center>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            </center>
-          </div>
-     </nav>
-     <div class="header">
-         <div class="intro">
-            <h1>Hi There!</h1><br>
-            <h2>I’m Shivananda,</h2><br>
-            <h4 style="color:grey">Full Stack Developer.</h4></h4><br>
-            <button onclick="window.location.href='#contact'" >HIRE ME</button>
-         </div>
-         <div class="dev">
-                <img src="./images/banner-image.png"/>
-         </div>
-    </div>
-  
-<div id="projects" class="projects">
-    <h1>Projects</h1>
-
-    <div class="row row-cols-1 row-cols-md-3" id="myData">
-
-       
-        
-
-          
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#tech-stack">Skills</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-</div>
+    </nav>
 
-<script>
-  window.onload = function() {
-    $.ajax({
-        type: "GET",
-        url: "https://api.github.com/users/shivanandaalva/repos",
-        dataType: "json",
-        success: function(result) {
-            for(var i in result ) {
-                var data=`  <div class="col mb-3">
-              <div class="card h-100 shadow p-3 mb-5 rounded" id="`+ result[i].html_url +`" onclick="getdata(this.id)" >
-                <h5 class="card-title text-center">`+result[i].name +`</h5>
-                <br>
-                    <p class="card-title text-center">`+ result[i].description +`</p> 
-                   </div> 
-                  </div>`
-                $(".row").append(data);
-                console.log("i: " + i);
-            }
-            console.log(result);
-        }
-    });
-  };
+    <header class="hero">
+        <div class="hero-content">
+            <span class="greeting fade-in">Hi, I'm</span>
+            <h1 class="fade-in delay-1">Shivananda Alva.</h1>
+            <h2 class="fade-in delay-2">I build things for the web.</h2>
+            <p class="fade-in delay-3">I'm a Full Stack Developer specializing in building (and occasionally designing)
+                exceptional digital experiences. Currently focused on building accessible, human-centered products.</p>
+            <a href="#contact" class="cta-btn fade-in delay-4">Get In Touch</a>
+        </div>
+    </header>
 
-function getdata(link){
-    window.open(link);
-
-}
-</script>
-<style>
-    .card{
-        min-height: 100px;
-        min-width: 100px;
-    }
-</style>
-<div id="about" class="about">
-    <div class="about-img">
-        <img src="./images/about-us.png"/>
-    </div>
-    <div class="about-data">
-        <h1>More about me</h1>
-        <br>
-        <p>I'm a Software Engineer who is always willing to learn new technologies. I have hands-on experience in working on projects.
-            I’m currently available for freelance work. If you have a project that you want to get started or think you need my help with something, then get in touch.
-        </p>
-        <br>
-          <!--  <button>DOWNLOAD CV</button>  -->
-    </div>
-</div>
- 
-<div id="contact" class="contact"> 
-<!-- <iframe id="JotFormIFrame-210874481727462" title="Responsive Contact Form - Default Theme" onload="window.parent.scrollTo(0,0)" allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera" src="https://form.jotform.com/210874481727462" frameborder="0" style=" min-width: 100%; height:539px; border:none;" scrolling="no" > </iframe> <script type="text/javascript"> var ifr = document.getElementById("JotFormIFrame-210874481727462"); if (ifr) { var src = ifr.src; var iframeParams = []; if (window.location.href && window.location.href.indexOf("?") > -1) { iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&')); } if (src && src.indexOf("?") > -1) { iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&")); src = src.substr(0, src.indexOf("?")) } iframeParams.push("isIframeEmbed=1"); ifr.src = src + "?" + iframeParams.join('&'); } window.handleIFrameMessage = function(e) { if (typeof e.data === 'object') { return; } var args = e.data.split(":"); if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); } if (!iframe) { return; } switch (args[0]) { case "scrollIntoView": iframe.scrollIntoView(); break; case "setHeight": iframe.style.height = args[1] + "px"; break; case "collapseErrorPage": if (iframe.clientHeight > window.innerHeight) { iframe.style.height = window.innerHeight + "px"; } break; case "reloadPage": window.location.reload(); break; case "loadScript": var src = args[1]; if (args.length > 3) { src = args[1] + ':' + args[2]; } var script = document.createElement('script'); script.src = src; script.type = 'text/javascript'; document.body.appendChild(script); break; case "exitFullscreen": if (window.document.exitFullscreen) window.document.exitFullscreen(); else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen(); else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen(); else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen(); else if (window.document.msExitFullscreen) window.document.msExitFullscreen(); break; } var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false; if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) { var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)}; iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*"); } }; if (window.addEventListener) { window.addEventListener("message", handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent("onmessage", handleIFrameMessage); } </script> -->
-    <div class="container contact-form">
-  
-            <center>
-        <form action="https://formsubmit.co/alvashivananda11@gmail.com" method="post">
-            <h3>Drop Me a Message</h3>
-          
-                    <div class="col-md-6"> 
-                    <div class="form-group">
-                        <input type="name" name="name" class="form-control" placeholder="Your Name *" value="" required/>
-                        <input type="hidden" name="_captcha" value="false">
-                         <input type="hidden" name="_next" value="https://shivanandaalva.github.io/thanks.html"/>
-                    
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email *" value="" required/>
-                    </div>
-                        <br>
-                    <div class="form-group">
-                        <textarea name="message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" required></textarea>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input  type="submit" name="btnSubmit" class="btn btn-warning" value="Send Message" />
+    <section id="about" class="section about">
+        <div class="container hover-reveal">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Shivananda, a software engineer who loves to create things that live on the internet.
+                        I enjoy learning new technologies and solving complex problems with code.</p>
+                    <p>I have hands-on experience working on various projects and I'm always looking for new challenges.
+                        I develop modern websites and applications with a focus on performance and user experience.</p>
+                </div>
+                <div class="about-img-container">
+                    <div class="img-wrapper">
+                        <img src="./images/about-me-illustration.png" alt="Shivananda Alva">
                     </div>
                 </div>
-      
-        </form>
-    </center>
-</div>
+            </div>
+        </div>
+    </section>
 
-</div> 
+    <section id="tech-stack" class="section tech-stack">
+        <div class="container hover-reveal">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="devicon-javascript-plain colored"></i>
+                    <span>JavaScript</span>
+                </div>
+                <!-- Added TypeScript as a bonus/standard complement to JS if not explicitly asked, but keeping to user list + new requests -->
+                <div class="tech-item">
+                    <i class="devicon-nodejs-plain colored"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-react-original colored"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-nextjs-original-wordmark colored"></i>
+                    <span>Next.js</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-react-original colored"></i>
+                    <span>React Native</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-expo-original colore"></i>
+                    <span>Expo</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-mysql-plain colored"></i>
+                    <span>MySQL</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-php-plain colored"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-java-plain colored"></i>
+                    <span>Java</span>
+                </div>
+                <!-- Oracle often uses original or plain -->
+                <div class="tech-item">
+                    <i class="devicon-oracle-original colored"></i>
+                    <span>Oracle</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram colored-custom"></i>
+                    <span>Appian</span>
+                </div>
+                <div class="tech-item">
+                    <i class="devicon-webflow-original colored"></i>
+                    <span>Webflow</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<br>
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title hover-reveal">Featured Projects</h2>
 
+            <div class="project-card hover-reveal">
+                <div class="project-content">
+                    <h3 class="project-title">DocuFlow</h3>
+                    <div class="project-desc">
+                        <p>A comprehensive document management solution designed to streamline workflows and enhance
+                            productivity.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>Web App</li>
+                        <li>Design</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://docuflow.top/" target="_blank" aria-label="External Link"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="project-card hover-reveal">
+                <div class="project-content">
+                    <h3 class="project-title">DocuFlow Convert</h3>
+                    <div class="project-desc">
+                        <p>Fast and secure file conversion tool supporting multiple formats.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>File Conversion</li>
+                        <li>Utility</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://convert.docuflow.top/" target="_blank" aria-label="External Link"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
-  <div class="footer">
-    <br>
-    <center>
-    <div class="details">
-        <br>
-        <p>Shivananda Alva<br>
-© All rights are reserved | 2021 </p>
-<br>
-<a href="https://github.com/shivanandaalva"  target="_blank">
-        <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" >
-          <path d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3 28.5 19.2 28.5 19.2 16.6 28.4 43.5 20.2 54.1 15.4 1.7-12 6.5-20.2 11.8-24.9 -41.3-4.7-84.7-20.6-84.7-91.9 0-20.3 7.3-36.9 19.2-49.9 -1.9-4.7-8.3-23.6 1.8-49.2 0 0 15.6-5 51.1 19.1 14.8-4.1 30.7-6.2 46.5-6.3 15.8 0.1 31.7 2.1 46.6 6.3 35.5-24 51.1-19.1 51.1-19.1 10.1 25.6 3.8 44.5 1.8 49.2 11.9 13 19.1 29.6 19.1 49.9 0 71.4-43.5 87.1-84.9 91.7 6.7 5.8 12.8 17.1 12.8 34.4 0 24.9 0 44.9 0 51 0 4.9 3 10.7 12.4 8.9 73.8-24.6 127-94.3 127-176.4C441.9 153.9 358.6 70.7 256 70.7z"></path>
-        </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/shivanandaalva/"  target="_blank">
-        <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512">
-          <path d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z"></path>
-        </svg>
-        </a>
- 
-</div>
-</div>
-</center>
+            <div class="project-card hover-reveal">
+                <div class="project-content">
+                    <h3 class="project-title">DocuFlow Compress</h3>
+                    <div class="project-desc">
+                        <p>Efficient file compression tool to reduce file sizes without losing quality.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>Compression</li>
+                        <li>Optimization</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://compress.docuflow.top/" target="_blank" aria-label="External Link"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <div class="project-card hover-reveal">
+                <div class="project-content">
+                    <h3 class="project-title">BingeHQ</h3>
+                    <div class="project-desc">
+                        <p>An entertainment platform for discovering and tracking your favorite movies and TV shows.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>React</li>
+                        <li>API</li>
+                        <li>Netlify</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://bingehq.netlify.app/" target="_blank" aria-label="External Link"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container hover-reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">I'm currently looking for new opportunities, my inbox is always open. Whether
+                you have a question or just want to say hi, I'll try my best to get back to you!</p>
+
+            <form action="https://formsubmit.co/alvashivananda11@gmail.com" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="hidden" name="_next" value="https://shivanandaalva.github.io/thanks.html">
+                <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="cta-btn">Say Hello</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/shivanandaalva" target="_blank" aria-label="GitHub"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/shivanandaalva/" target="_blank" aria-label="LinkedIn"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="copyright">Designed & Built by Shivananda Alva</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
