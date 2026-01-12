@@ -4,7 +4,7 @@ const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 
 burger.addEventListener('click', () => {
-  // Toggle Nav
+  // Toggle Nav with smooth class toggle
   nav.classList.toggle('nav-active');
 
   // Burger Animation
@@ -19,47 +19,32 @@ navLinks.forEach(link => {
   });
 });
 
-// Scroll Animations using Intersection Observer
+// Intersection Observer for Reveal Animations
 const observerOptions = {
-  threshold: 0.2, // Trigger when 20% of the element is visible
-  rootMargin: "0px 0px -50px 0px"
+  threshold: 0.1,
+  rootMargin: "0px"
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
-      observer.unobserve(entry.target); // Only animate once
+      observer.unobserve(entry.target); // Animate only once
     }
   });
 }, observerOptions);
 
-// Select all elements with the 'hover-reveal' class (renaming to reveal-on-scroll for clarity in JS, but using class from HTML)
-// Actually in HTML I used 'hover-reveal' for sections/containers to fade in.
-// Let's ensure CSS matches. I added .hidden and .show in CSS, but need to add .hidden initially to elements I want to reveal.
-// Wait, I didn't add .hidden to HTML elements yet. I should add a script to add it, or better yet, handling it here.
-
-const scrollElements = document.querySelectorAll('.hover-reveal'); // Using the class I added to HTML sections
-
-scrollElements.forEach((el) => {
-  el.classList.add('hidden'); // Add hidden class via JS to ensure they are visible if JS fails/not loaded
-  observer.observe(el);
-});
-
-// Add hidden class to 'project-card' and other elements we want to animate individually if they aren't covered by parent
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach((el) => {
-  el.classList.add('hidden');
-  observer.observe(el);
-});
+// Select all elements with the 'hidden' class to watch
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
 
 
-// Navbar Scroll Effect (Optional: add shadow on scroll)
+// Navbar Scroll Effect
 window.addEventListener('scroll', () => {
   const navbar = document.querySelector('.navbar');
   if (window.scrollY > 50) {
-    navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+    navbar.classList.add('scrolled');
   } else {
-    navbar.style.boxShadow = "none";
+    navbar.classList.remove('scrolled');
   }
 });
